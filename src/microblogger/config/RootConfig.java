@@ -35,7 +35,7 @@ public class RootConfig {
         try {
             LocalSessionFactoryBean lsfb = new LocalSessionFactoryBean();
             lsfb.setDataSource(dataSource());
-            lsfb.setPackagesToScan("microblogger.db.domain");
+            lsfb.setPackagesToScan("microblogger.dao.entity");
             Properties props = new Properties();
             props.setProperty("dialect", "org.hibernate.dialect.H2Dialect");
             lsfb.setHibernateProperties(props);
