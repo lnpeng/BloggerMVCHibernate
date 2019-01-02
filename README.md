@@ -1,7 +1,8 @@
 # BloggerMVCHibernate
-Blogs web application is a Spring MVC web app where a blogger can register, add a blog and see recent blogs.
+Blogger web application is a Spring MVC web app where a blogger can register, add a blog and see recent blogs.
 
 # Description
+
 `home.jsp`, `blogs.jsp`, `registerForm.jsp`, `profile.jsp` are **views** that welcome users, display recent blogs and provide forms to add a new blog and register themselves.
 
 `HomeController`, `BlogsController` and `BloggerController` are **controllers** that handle requests and process forms. `HomeController`'s `home` method returns home view name. `BlogsController`'s `blogs` method uses a `BlogRepository` to retrieve recent blogs, places them on the **model** and returns view name; `saveBlog` method processes blog form and save a new blog to `BlogRepository`. `BloggerController` returns registration form's view name, processes the blogger registration form and save a new blogger to `BloggerRepository`, and redirects the request to a confirmation page. The view names are resolved by `InternalResourceViewResolver`.
@@ -9,6 +10,8 @@ Blogs web application is a Spring MVC web app where a blogger can register, add 
 `HibernateBlogRepository` and `HibernateBloggerRepository` are **Data Access Object (DAO)** that fetch a list of blogs, save a blog, query a blogger, and save a bloger via Hibernate. Hibernate is an open source persistence framework that provides not only basic object-relational mapping but also all the other features you would expect from a full-featured ORM tool, such as caching, lazy loading, eager fetching, and distributed caching.
 
 The blogs database contains `blog` table with columns `id`, `message`, and `created_at`, `blogger` table with columns `id`, `username`, `password`, `first_name`, `last_name`, `email`. `Blogger` and `Blog` are the persistence entity classes mapped to database tables.
+
+Blogger web application uses the **Spring Security** to authenticate requests to view blogs or add a blog. By `SecurityWebInitializer` subclassing `AbstractSecurityWebApplicationInitializer`, it will intercept requests coming into the application. `SecurityConfig` specifies how HTTP requests should be securied and what options a client has for authenticating the user (using a custom login page).
 
 # Getting Started
 ## Prerequisites
@@ -41,11 +44,14 @@ cd BloggerMVCHibernate
 ## Running the tests
 ### Test the Blogs web application in Web Browser
 - Launch the application from a web browser.
-- Add blogs
+![Home](https://github.com/lnpeng/BloggerMVCHibernate/blob/master/Screen%20Shot%202019-01-02%20at%203.38.35%20PM.png)
+- Authenticate the request to view a list of blogs.
+![Login](https://github.com/lnpeng/BloggerMVCHibernate/blob/master/Screen%20Shot%202019-01-02%20at%203.38.19%20PM.png)
+- Add blogs.
 ![Blogs](https://github.com/lnpeng/BloggerMVCHibernate/blob/master/Screen%20Shot%202018-12-30%20at%207.19.31%20PM.png)
 
 ## Deployment
 Deploy the project on [Tomcat](http://tomcat.apache.org/) server in Eclipse IDE.
 
 # Build
-- [Eclipse](https://www.eclipse.org/ide/) Dynamic Web Project
+- [Maven](https:maven.apache.org) - Dependency Management.
