@@ -21,8 +21,8 @@ Blogger web application uses the **Spring Security** to authenticate requests to
 - JSTL 1.2
 - Apache Commons Lang 3.1
 - Hibernate 4.1.6.Final
-- log4j 1.2.14
-- slf4j 1.7.5
+- Spring Security 4.2.3.RELEASE
+- Jave Servlet API 3.1.0
 
 ## Installing
 - Create a local respository
