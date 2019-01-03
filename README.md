@@ -1,5 +1,5 @@
 # BloggerMVCHibernate
-Blogger web application is a Spring MVC web app where a blogger can register, add a blog and see recent blogs.
+Blogger web application is a secured Spring MVC web app where a blogger can register, add a blog and see recent blogs.
 
 # Description
 
